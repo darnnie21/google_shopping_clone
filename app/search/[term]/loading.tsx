@@ -4,14 +4,14 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 interface LoadingPageProps {}
 
-const LoadingPage: React.FC<LoadingPageProps> = props => {
+const LoadingPage: React.FC<LoadingPageProps> = () => {
   return (
     <div>
       <div className='flex md:px-5'>
         {/* SIDEBAR */}
         <div className='w-36 md:w-64 space-y-5'>
           {[...Array(4)].map((_, i) => (
-            <div className='border rounded-r-lg md:rounded-lg p-5'>
+            <div className='border rounded-r-lg md:rounded-lg p-5' key={i}>
               <h1 className='font-bold'>
                 <Skeleton />
               </h1>
@@ -32,8 +32,8 @@ const LoadingPage: React.FC<LoadingPageProps> = props => {
               </h2>
             </div>
 
-            {[...Array(12)].map(item => (
-              <div className='p-5 border rounded-2xl'>
+            {[...Array(12)].map((item, i) => (
+              <div className='p-5 border rounded-2xl' key={i}>
                 <Skeleton count={2} />
                 <br />
                 <Skeleton count={1} />

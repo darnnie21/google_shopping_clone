@@ -29,8 +29,9 @@ const ResultsList: React.FC<ResultsListProps> = ({
                   <p className='font-bold'>{filter.name}</p>
 
                   <div className='flex flex-col'>
-                    {filter.values?.map(value => (
+                    {filter.values?.map((value, i) => (
                       <Link
+                        key={i}
                         prefetch={false}
                         href={`https://www.google.com${value.url}`}
                       >
@@ -64,8 +65,8 @@ const ResultsList: React.FC<ResultsListProps> = ({
                 </h2>
               </div>
               <h3 className='font-extralight'>
-                Showing results for '
-                {decodeURIComponent(term)}'
+                Showing results for &apos;
+                {decodeURIComponent(term)}&apos;
               </h3>
             </div>
 

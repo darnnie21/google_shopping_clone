@@ -74,10 +74,11 @@ const ProductPage: React.FC<ProductPageProps> = async ({
             <div className='flex flex-col justify-between'>
               {productData.content.images?.full_size
                 .slice(1, 3)
-                .map(image => (
+                .map((image, i) => (
                   <img
                     src={image}
                     alt=''
+                    key={i}
                     className='w-[9.5rem] h-[9.5rem] object-contain border rounded-md'
                   />
                 ))}
@@ -87,10 +88,11 @@ const ProductPage: React.FC<ProductPageProps> = async ({
           <div className='flex space-x-6 overflow-x-scroll py-2 md:w-[30rem]'>
             {productData.content.images?.full_size
               .slice(3)
-              .map(image => (
+              .map((image, i) => (
                 <img
                   src={image}
                   alt=''
+                  key={i}
                   className='w-20 h-20 object-contain'
                 />
               ))}
@@ -169,8 +171,11 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                 <hr />
                 <ul className='spce-y-2'>
                   {productData.content.highlights?.map(
-                    highlight => (
-                      <li className='list-disc mb-2'>
+                    (highlight, i) => (
+                      <li
+                        className='list-disc mb-2'
+                        key={i}
+                      >
                         {highlight}
                       </li>
                     )
@@ -225,12 +230,12 @@ const ProductPage: React.FC<ProductPageProps> = async ({
                   ))}
                 </div>
                 <p>
-                  '
+                  &apos;
                   {
                     productData.content.reviews.top_review
                       .text
                   }
-                  '
+                  &apos;
                 </p>
               </div>
             )}
@@ -240,7 +245,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
             <h3 className='font-bold text-2xl'>Reviews</h3>
 
             <h4 className='text-lg italic'>
-              No Review's yet
+              No Review&apos;s yet
             </h4>
           </div>
         )}
